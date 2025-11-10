@@ -123,4 +123,29 @@ This project is for learning purposes and open to anyone to use and modify.
 
 ---
 
-If you want, I can also **add a small diagram to explain the data flow in the script**, which makes the README look more professional.
+In an nginx access log, each line is **space-separated** by default.
+
+For example, this line:
+
+```
+178.128.94.113 - - [04/Oct/2024:00:00:18 +0000] "GET /v1-health HTTP/1.1" 200 51 "-" "DigitalOcean Uptime Probe 0.22.0"
+```
+
+* `$1` → `178.128.94.113` (IP address)
+* `$2` → `-`
+* `$3` → `-`
+* `$4` → `[04/Oct/2024:00:00:18`
+* `$5` → `+0000]`
+* `$6` → `"GET`
+* **`$7` → `/v1-health`** (the requested path)
+* `$8` → `HTTP/1.1"`
+* `$9` → `200` (status code)
+
+So `awk '{print $7}'` picks the **7th field**, which is the requested path.
+
+The fields are automatically separated by spaces unless you tell `awk` to use a different separator.
+
+If you want, I can draw a **diagram showing which number picks which part** of the log line—it makes it much clearer.
+
+=====================================================================================================================
+the idea of this project is get from https://roadmap.sh/projects/nginx-log-analyser
