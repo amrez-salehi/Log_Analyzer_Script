@@ -147,5 +147,6 @@ The fields are automatically separated by spaces unless you tell `awk` to use a 
 
 If you want, I can draw a **diagram showing which number picks which part** of the log line—it makes it much clearer.
 
-=====================================================================================================================
+
+
 the idea of this project is get from https://roadmap.sh/projects/nginx-log-analyser
